@@ -41,6 +41,9 @@ PROMPT Compiling PKG_TRADE_PARALLEL...
 PROMPT Compiling PKG_OBSERVABILITY...
 @oracle/packages/047_pkg_observability.sql
 
+PROMPT Compiling PKG_RECONCILIATION...
+@oracle/packages/048_pkg_reconciliation.sql
+
 PROMPT Checking compilation errors...
 SHOW ERRORS PACKAGE pkg_common
 SHOW ERRORS PACKAGE BODY pkg_common
@@ -51,7 +54,6 @@ SHOW ERRORS PACKAGE BODY pkg_trade_validate
 SHOW ERRORS PACKAGE pkg_trade_lookup
 SHOW ERRORS PACKAGE BODY pkg_trade_lookup
 SHOW ERRORS PACKAGE pkg_trade_types
-SHOW ERRORS PACKAGE BODY pkg_trade_types
 SHOW ERRORS PACKAGE pkg_trade_transform
 SHOW ERRORS PACKAGE BODY pkg_trade_transform
 SHOW ERRORS PACKAGE pkg_trade_event
@@ -66,5 +68,7 @@ SHOW ERRORS PACKAGE pkg_trade_parallel
 SHOW ERRORS PACKAGE BODY pkg_trade_parallel
 SHOW ERRORS PACKAGE pkg_observability
 SHOW ERRORS PACKAGE BODY pkg_observability
+SHOW ERRORS PACKAGE pkg_reconciliation
+SHOW ERRORS PACKAGE BODY pkg_reconciliation
 
 PROMPT Core PL/SQL V2 installation completed.
