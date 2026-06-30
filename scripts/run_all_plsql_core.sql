@@ -29,22 +29,35 @@ PROMPT Compiling PKG_TRADE_EVENT...
 PROMPT Compiling PKG_TRADE_LOAD...
 @oracle/packages/042_pkg_trade_load.sql
 
+PROMPT Compiling PKG_TRADE_LOAD_BULK...
+@oracle/packages/044_pkg_trade_load_bulk.sql
+
 PROMPT Checking compilation errors...
 SHOW ERRORS PACKAGE pkg_common
 SHOW ERRORS PACKAGE BODY pkg_common
+
 SHOW ERRORS PACKAGE pkg_log
 SHOW ERRORS PACKAGE BODY pkg_log
+
 SHOW ERRORS PACKAGE pkg_trade_validate
 SHOW ERRORS PACKAGE BODY pkg_trade_validate
+
 SHOW ERRORS PACKAGE pkg_trade_lookup
 SHOW ERRORS PACKAGE BODY pkg_trade_lookup
+
 SHOW ERRORS PACKAGE pkg_trade_types
 SHOW ERRORS PACKAGE BODY pkg_trade_types
+
 SHOW ERRORS PACKAGE pkg_trade_transform
 SHOW ERRORS PACKAGE BODY pkg_trade_transform
+
 SHOW ERRORS PACKAGE pkg_trade_event
 SHOW ERRORS PACKAGE BODY pkg_trade_event
+
 SHOW ERRORS PACKAGE pkg_trade_load
 SHOW ERRORS PACKAGE BODY pkg_trade_load
+
+SHOW ERRORS PACKAGE pkg_trade_load_bulk
+SHOW ERRORS PACKAGE BODY pkg_trade_load_bulk
 
 PROMPT Core PL/SQL V2 installation completed.
