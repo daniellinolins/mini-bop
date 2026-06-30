@@ -44,6 +44,9 @@ PROMPT Compiling PKG_OBSERVABILITY...
 PROMPT Compiling PKG_RECONCILIATION...
 @oracle/packages/048_pkg_reconciliation.sql
 
+PROMPT Compiling PKG_RECOVERY...
+@oracle/packages/049_pkg_recovery.sql
+
 PROMPT Checking compilation errors...
 SHOW ERRORS PACKAGE pkg_common
 SHOW ERRORS PACKAGE BODY pkg_common
@@ -70,5 +73,7 @@ SHOW ERRORS PACKAGE pkg_observability
 SHOW ERRORS PACKAGE BODY pkg_observability
 SHOW ERRORS PACKAGE pkg_reconciliation
 SHOW ERRORS PACKAGE BODY pkg_reconciliation
+SHOW ERRORS PACKAGE pkg_recovery
+SHOW ERRORS PACKAGE BODY pkg_recovery
 
 PROMPT Core PL/SQL V2 installation completed.
