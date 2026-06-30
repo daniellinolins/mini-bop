@@ -1,11 +1,9 @@
 CREATE OR REPLACE PACKAGE pkg_trade_lookup AS
-
     FUNCTION get_book_id(p_book_code VARCHAR2) RETURN NUMBER;
     FUNCTION get_portfolio_id(p_portfolio_code VARCHAR2) RETURN NUMBER;
     FUNCTION get_counterparty_id(p_counterparty_code VARCHAR2) RETURN NUMBER;
     FUNCTION get_instrument_id(p_instrument_code VARCHAR2) RETURN NUMBER;
     FUNCTION currency_exists(p_currency_code VARCHAR2) RETURN BOOLEAN;
-
 END pkg_trade_lookup;
 /
 
@@ -17,13 +15,13 @@ CREATE OR REPLACE PACKAGE BODY pkg_trade_lookup AS
         SELECT book_id
           INTO v_id
           FROM book
-         WHERE book_code = TRIM(p_book_code);
+         WHERE book_code = pkg_common.normalize_code(p_book_code);
 
         RETURN v_id;
     EXCEPTION
         WHEN NO_DATA_FOUND THEN
             RETURN NULL;
-    END;
+    END get_book_id;
 
     FUNCTION get_portfolio_id(p_portfolio_code VARCHAR2) RETURN NUMBER IS
         v_id NUMBER;
@@ -31,13 +29,13 @@ CREATE OR REPLACE PACKAGE BODY pkg_trade_lookup AS
         SELECT portfolio_id
           INTO v_id
           FROM portfolio
-         WHERE portfolio_code = TRIM(p_portfolio_code);
+         WHERE portfolio_code = pkg_common.normalize_code(p_portfolio_code);
 
         RETURN v_id;
     EXCEPTION
         WHEN NO_DATA_FOUND THEN
             RETURN NULL;
-    END;
+    END get_portfolio_id;
 
     FUNCTION get_counterparty_id(p_counterparty_code VARCHAR2) RETURN NUMBER IS
         v_id NUMBER;
@@ -45,13 +43,13 @@ CREATE OR REPLACE PACKAGE BODY pkg_trade_lookup AS
         SELECT counterparty_id
           INTO v_id
           FROM counterparty
-         WHERE counterparty_code = TRIM(p_counterparty_code);
+         WHERE counterparty_code = pkg_common.normalize_code(p_counterparty_code);
 
         RETURN v_id;
     EXCEPTION
         WHEN NO_DATA_FOUND THEN
             RETURN NULL;
-    END;
+    END get_counterparty_id;
 
     FUNCTION get_instrument_id(p_instrument_code VARCHAR2) RETURN NUMBER IS
         v_id NUMBER;
@@ -59,13 +57,13 @@ CREATE OR REPLACE PACKAGE BODY pkg_trade_lookup AS
         SELECT instrument_id
           INTO v_id
           FROM instrument
-         WHERE instrument_code = TRIM(p_instrument_code);
+         WHERE instrument_code = pkg_common.normalize_code(p_instrument_code);
 
         RETURN v_id;
     EXCEPTION
         WHEN NO_DATA_FOUND THEN
             RETURN NULL;
-    END;
+    END get_instrument_id;
 
     FUNCTION currency_exists(p_currency_code VARCHAR2) RETURN BOOLEAN IS
         v_count NUMBER;
@@ -73,10 +71,10 @@ CREATE OR REPLACE PACKAGE BODY pkg_trade_lookup AS
         SELECT COUNT(*)
           INTO v_count
           FROM currency
-         WHERE currency_code = TRIM(UPPER(p_currency_code));
+         WHERE currency_code = pkg_common.normalize_code(p_currency_code);
 
         RETURN v_count > 0;
-    END;
+    END currency_exists;
 
 END pkg_trade_lookup;
 /

@@ -8,12 +8,22 @@ PROMPT ===========================================
 
 SELECT object_name, object_type, status
 FROM user_objects
-WHERE object_name IN (
-    'PKG_COMMON',
-    'PKG_ETL_LOG',
-    'PKG_TRADE_VALIDATE'
-)
+WHERE object_name IN ('PKG_COMMON', 'PKG_LOG', 'PKG_TRADE_VALIDATE')
 ORDER BY object_name, object_type;
+
+PROMPT ===========================================
+PROMPT RESETTING SAMPLE STAGING DATA
+PROMPT ===========================================
+
+UPDATE stg_trade_raw
+   SET batch_id = NULL,
+       processing_status = 'NEW',
+       error_count = 0,
+       processed_at = NULL;
+
+DELETE FROM stg_trade_error;
+
+COMMIT;
 
 PROMPT ===========================================
 PROMPT TESTING BATCH VALIDATION
@@ -22,7 +32,7 @@ PROMPT ===========================================
 DECLARE
     v_batch_id NUMBER;
 BEGIN
-    v_batch_id := pkg_etl_log.start_batch(
+    v_batch_id := pkg_log.start_batch(
         p_batch_name    => 'TRADE_VALIDATION_TEST',
         p_source_system => 'MUREX_SIM',
         p_file_name     => 'sample_phase2_test.csv'
@@ -33,21 +43,27 @@ BEGIN
            processing_status = 'NEW',
            error_count = 0,
            processed_at = NULL
-     WHERE batch_id IS NULL
-        OR batch_id = 1;
+     WHERE batch_id IS NULL;
 
     pkg_trade_validate.validate_batch(v_batch_id);
-
-    pkg_etl_log.end_batch(v_batch_id, 'SUCCESS');
+    pkg_log.end_batch(v_batch_id, 'SUCCESS');
 
     DBMS_OUTPUT.PUT_LINE('Batch executed: ' || v_batch_id);
-
     COMMIT;
 END;
 /
 
 PROMPT ===========================================
-PROMPT BATCH RESULT
+PROMPT STAGING STATUS SUMMARY
+PROMPT ===========================================
+
+SELECT processing_status, COUNT(*) total_rows
+FROM stg_trade_raw
+GROUP BY processing_status
+ORDER BY processing_status;
+
+PROMPT ===========================================
+PROMPT LATEST BATCH RESULT
 PROMPT ===========================================
 
 SELECT batch_id,
@@ -61,17 +77,6 @@ SELECT batch_id,
 FROM etl_batch
 ORDER BY batch_id DESC
 FETCH FIRST 5 ROWS ONLY;
-
-PROMPT ===========================================
-PROMPT STAGING RESULT
-PROMPT ===========================================
-
-SELECT stg_trade_id,
-       external_trade_id,
-       processing_status,
-       error_count
-FROM stg_trade_raw
-ORDER BY stg_trade_id;
 
 PROMPT ===========================================
 PROMPT VALIDATION ERRORS

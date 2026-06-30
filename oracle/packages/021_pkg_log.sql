@@ -1,4 +1,4 @@
-CREATE OR REPLACE PACKAGE pkg_etl_log AS
+CREATE OR REPLACE PACKAGE pkg_log AS
 
     FUNCTION start_batch(
         p_batch_name    VARCHAR2,
@@ -30,10 +30,30 @@ CREATE OR REPLACE PACKAGE pkg_etl_log AS
         p_status   VARCHAR2
     );
 
-END pkg_etl_log;
+END pkg_log;
 /
 
-CREATE OR REPLACE PACKAGE BODY pkg_etl_log AS
+CREATE OR REPLACE PACKAGE BODY pkg_log AS
+
+    FUNCTION next_batch_id RETURN NUMBER IS
+        v_id NUMBER;
+    BEGIN
+        SELECT NVL(MAX(batch_id), 0) + 1
+          INTO v_id
+          FROM etl_batch;
+
+        RETURN v_id;
+    END next_batch_id;
+
+    FUNCTION next_log_id RETURN NUMBER IS
+        v_id NUMBER;
+    BEGIN
+        SELECT NVL(MAX(log_id), 0) + 1
+          INTO v_id
+          FROM etl_log;
+
+        RETURN v_id;
+    END next_log_id;
 
     FUNCTION start_batch(
         p_batch_name    VARCHAR2,
@@ -42,9 +62,7 @@ CREATE OR REPLACE PACKAGE BODY pkg_etl_log AS
     ) RETURN NUMBER IS
         v_batch_id NUMBER;
     BEGIN
-        SELECT NVL(MAX(batch_id), 0) + 1
-        INTO v_batch_id
-        FROM etl_batch;
+        v_batch_id := next_batch_id;
 
         INSERT INTO etl_batch (
             batch_id,
@@ -72,10 +90,10 @@ CREATE OR REPLACE PACKAGE BODY pkg_etl_log AS
             USER
         );
 
-        log_msg(v_batch_id, 'INFO', 'PKG_ETL_LOG', 'Batch started');
+        log_msg(v_batch_id, 'INFO', 'PKG_LOG', 'Batch started');
 
         RETURN v_batch_id;
-    END;
+    END start_batch;
 
     PROCEDURE log_msg(
         p_batch_id    NUMBER,
@@ -85,9 +103,7 @@ CREATE OR REPLACE PACKAGE BODY pkg_etl_log AS
     ) IS
         v_log_id NUMBER;
     BEGIN
-        SELECT NVL(MAX(log_id), 0) + 1
-        INTO v_log_id
-        FROM etl_log;
+        v_log_id := next_log_id;
 
         INSERT INTO etl_log (
             log_id,
@@ -104,7 +120,7 @@ CREATE OR REPLACE PACKAGE BODY pkg_etl_log AS
             SUBSTR(p_message, 1, 4000),
             SYSTIMESTAMP
         );
-    END;
+    END log_msg;
 
     PROCEDURE info(
         p_batch_id    NUMBER,
@@ -113,7 +129,7 @@ CREATE OR REPLACE PACKAGE BODY pkg_etl_log AS
     ) IS
     BEGIN
         log_msg(p_batch_id, 'INFO', p_module_name, p_message);
-    END;
+    END info;
 
     PROCEDURE error(
         p_batch_id    NUMBER,
@@ -122,7 +138,7 @@ CREATE OR REPLACE PACKAGE BODY pkg_etl_log AS
     ) IS
     BEGIN
         log_msg(p_batch_id, 'ERROR', p_module_name, p_message);
-    END;
+    END error;
 
     PROCEDURE end_batch(
         p_batch_id NUMBER,
@@ -134,25 +150,25 @@ CREATE OR REPLACE PACKAGE BODY pkg_etl_log AS
                ended_at = SYSTIMESTAMP,
                total_rows = (
                    SELECT COUNT(*)
-                   FROM stg_trade_raw
-                   WHERE batch_id = p_batch_id
+                     FROM stg_trade_raw
+                    WHERE batch_id = p_batch_id
                ),
                valid_rows = (
                    SELECT COUNT(*)
-                   FROM stg_trade_raw
-                   WHERE batch_id = p_batch_id
-                     AND processing_status = 'VALID'
+                     FROM stg_trade_raw
+                    WHERE batch_id = p_batch_id
+                      AND processing_status = 'VALIDATED'
                ),
                rejected_rows = (
                    SELECT COUNT(*)
-                   FROM stg_trade_raw
-                   WHERE batch_id = p_batch_id
-                     AND processing_status = 'ERROR'
+                     FROM stg_trade_raw
+                    WHERE batch_id = p_batch_id
+                      AND processing_status = 'REJECTED'
                )
          WHERE batch_id = p_batch_id;
 
-        log_msg(p_batch_id, 'INFO', 'PKG_ETL_LOG', 'Batch finished with status ' || p_status);
-    END;
+        log_msg(p_batch_id, 'INFO', 'PKG_LOG', 'Batch finished with status ' || UPPER(p_status));
+    END end_batch;
 
-END pkg_etl_log;
+END pkg_log;
 /

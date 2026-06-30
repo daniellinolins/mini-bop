@@ -6,12 +6,10 @@ PROMPT ===========================================
 PROMPT VALIDATING MINI BOP - PHASE 3
 PROMPT ===========================================
 
-SELECT object_name,
-       object_type,
-       status
+SELECT object_name, object_type, status
 FROM user_objects
-WHERE object_name = 'PKG_TRADE_LOOKUP'
-ORDER BY object_type;
+WHERE object_name IN ('PKG_COMMON', 'PKG_TRADE_LOOKUP')
+ORDER BY object_name, object_type;
 
 PROMPT ===========================================
 PROMPT LOOKUP TESTS
