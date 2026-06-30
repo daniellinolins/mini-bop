@@ -37,6 +37,7 @@ CREATE OR REPLACE PACKAGE BODY pkg_trade_load AS
         v_trade        pkg_trade_types.trade_rec;
         v_trade_id     trade.trade_id%TYPE;
         v_existing_id  trade.trade_id%TYPE;
+        v_action       VARCHAR2(20);
     BEGIN
         v_trade := pkg_trade_transform.transform_stage_trade(p_stg_trade_id);
 
@@ -65,6 +66,12 @@ CREATE OR REPLACE PACKAGE BODY pkg_trade_load AS
              WHERE trade_id = v_existing_id;
 
             v_trade_id := v_existing_id;
+            v_action   := 'TRADE_UPDATED';
+
+            pkg_trade_event.trade_updated(
+                p_trade_id => v_trade_id,
+                p_message  => v_action || ' from STG_TRADE_ID=' || p_stg_trade_id
+            );
         ELSE
             INSERT INTO trade (
                 external_trade_id,
@@ -105,6 +112,13 @@ CREATE OR REPLACE PACKAGE BODY pkg_trade_load AS
                 SYSTIMESTAMP,
                 SYSTIMESTAMP
             ) RETURNING trade_id INTO v_trade_id;
+
+            v_action := 'TRADE_CREATED';
+
+            pkg_trade_event.trade_created(
+                p_trade_id => v_trade_id,
+                p_message  => v_action || ' from STG_TRADE_ID=' || p_stg_trade_id
+            );
         END IF;
 
         UPDATE stg_trade_raw
@@ -118,7 +132,7 @@ CREATE OR REPLACE PACKAGE BODY pkg_trade_load AS
     PROCEDURE load_batch(
         p_batch_id NUMBER
     ) IS
-        v_trade_id trade.trade_id%TYPE;
+        v_trade_id     trade.trade_id%TYPE;
         v_loaded_count NUMBER := 0;
     BEGIN
         pkg_log.info(p_batch_id, 'PKG_TRADE_LOAD', 'Starting trade load');

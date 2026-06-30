@@ -36,23 +36,23 @@ END pkg_log;
 CREATE OR REPLACE PACKAGE BODY pkg_log AS
 
     FUNCTION next_batch_id RETURN NUMBER IS
-        v_id NUMBER;
+        v_batch_id NUMBER;
     BEGIN
         SELECT NVL(MAX(batch_id), 0) + 1
-          INTO v_id
+          INTO v_batch_id
           FROM etl_batch;
 
-        RETURN v_id;
+        RETURN v_batch_id;
     END next_batch_id;
 
     FUNCTION next_log_id RETURN NUMBER IS
-        v_id NUMBER;
+        v_log_id NUMBER;
     BEGIN
         SELECT NVL(MAX(log_id), 0) + 1
-          INTO v_id
+          INTO v_log_id
           FROM etl_log;
 
-        RETURN v_id;
+        RETURN v_log_id;
     END next_log_id;
 
     FUNCTION start_batch(
@@ -157,7 +157,7 @@ CREATE OR REPLACE PACKAGE BODY pkg_log AS
                    SELECT COUNT(*)
                      FROM stg_trade_raw
                     WHERE batch_id = p_batch_id
-                      AND processing_status = 'VALIDATED'
+                      AND processing_status IN ('VALIDATED', 'PROCESSED')
                ),
                rejected_rows = (
                    SELECT COUNT(*)

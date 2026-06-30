@@ -23,6 +23,9 @@ PROMPT Compiling PKG_TRADE_TYPES...
 PROMPT Compiling PKG_TRADE_TRANSFORM...
 @oracle/packages/041_pkg_trade_transform.sql
 
+PROMPT Compiling PKG_TRADE_EVENT...
+@oracle/packages/043_pkg_trade_event.sql
+
 PROMPT Compiling PKG_TRADE_LOAD...
 @oracle/packages/042_pkg_trade_load.sql
 
@@ -39,6 +42,8 @@ SHOW ERRORS PACKAGE pkg_trade_types
 SHOW ERRORS PACKAGE BODY pkg_trade_types
 SHOW ERRORS PACKAGE pkg_trade_transform
 SHOW ERRORS PACKAGE BODY pkg_trade_transform
+SHOW ERRORS PACKAGE pkg_trade_event
+SHOW ERRORS PACKAGE BODY pkg_trade_event
 SHOW ERRORS PACKAGE pkg_trade_load
 SHOW ERRORS PACKAGE BODY pkg_trade_load
 
