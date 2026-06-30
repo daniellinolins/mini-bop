@@ -23,6 +23,9 @@ PROMPT Compiling PKG_TRADE_TYPES...
 PROMPT Compiling PKG_TRADE_TRANSFORM...
 @oracle/packages/041_pkg_trade_transform.sql
 
+PROMPT Compiling PKG_TRADE_LOAD...
+@oracle/packages/042_pkg_trade_load.sql
+
 PROMPT Checking compilation errors...
 SHOW ERRORS PACKAGE pkg_common
 SHOW ERRORS PACKAGE BODY pkg_common
@@ -36,5 +39,7 @@ SHOW ERRORS PACKAGE pkg_trade_types
 SHOW ERRORS PACKAGE BODY pkg_trade_types
 SHOW ERRORS PACKAGE pkg_trade_transform
 SHOW ERRORS PACKAGE BODY pkg_trade_transform
+SHOW ERRORS PACKAGE pkg_trade_load
+SHOW ERRORS PACKAGE BODY pkg_trade_load
 
 PROMPT Core PL/SQL V2 installation completed.
