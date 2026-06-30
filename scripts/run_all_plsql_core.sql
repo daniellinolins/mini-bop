@@ -38,6 +38,9 @@ PROMPT Compiling PKG_BATCH_SCHEDULER...
 PROMPT Compiling PKG_TRADE_PARALLEL...
 @oracle/packages/046_pkg_trade_parallel.sql
 
+PROMPT Compiling PKG_OBSERVABILITY...
+@oracle/packages/047_pkg_observability.sql
+
 PROMPT Checking compilation errors...
 SHOW ERRORS PACKAGE pkg_common
 SHOW ERRORS PACKAGE BODY pkg_common
@@ -61,5 +64,7 @@ SHOW ERRORS PACKAGE pkg_batch_scheduler
 SHOW ERRORS PACKAGE BODY pkg_batch_scheduler
 SHOW ERRORS PACKAGE pkg_trade_parallel
 SHOW ERRORS PACKAGE BODY pkg_trade_parallel
+SHOW ERRORS PACKAGE pkg_observability
+SHOW ERRORS PACKAGE BODY pkg_observability
 
 PROMPT Core PL/SQL V2 installation completed.
