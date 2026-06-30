@@ -56,6 +56,9 @@ PROMPT Compiling PKG_METADATA_ENGINE...
 PROMPT Compiling PKG_AUDIT_LINEAGE...
 @oracle/packages/052_pkg_audit_lineage.sql
 
+PROMPT Compiling PKG_PIPELINE_CONFIG...
+@oracle/packages/053_pkg_pipeline_config.sql
+
 PROMPT Checking compilation errors...
 SHOW ERRORS PACKAGE pkg_common
 SHOW ERRORS PACKAGE BODY pkg_common
@@ -90,5 +93,7 @@ SHOW ERRORS PACKAGE pkg_metadata_engine
 SHOW ERRORS PACKAGE BODY pkg_metadata_engine
 SHOW ERRORS PACKAGE pkg_audit_lineage
 SHOW ERRORS PACKAGE BODY pkg_audit_lineage
+SHOW ERRORS PACKAGE pkg_pipeline_config
+SHOW ERRORS PACKAGE BODY pkg_pipeline_config
 
 PROMPT Core PL/SQL V2 installation completed.
