@@ -59,6 +59,9 @@ PROMPT Compiling PKG_AUDIT_LINEAGE...
 PROMPT Compiling PKG_PIPELINE_CONFIG...
 @oracle/packages/053_pkg_pipeline_config.sql
 
+PROMPT Compiling PKG_HADOOP_EXPORT...
+@oracle/packages/054_pkg_hadoop_export.sql
+
 PROMPT Checking compilation errors...
 SHOW ERRORS PACKAGE pkg_common
 SHOW ERRORS PACKAGE BODY pkg_common
@@ -95,5 +98,7 @@ SHOW ERRORS PACKAGE pkg_audit_lineage
 SHOW ERRORS PACKAGE BODY pkg_audit_lineage
 SHOW ERRORS PACKAGE pkg_pipeline_config
 SHOW ERRORS PACKAGE BODY pkg_pipeline_config
+SHOW ERRORS PACKAGE pkg_hadoop_export
+SHOW ERRORS PACKAGE BODY pkg_hadoop_export
 
 PROMPT Core PL/SQL V2 installation completed.

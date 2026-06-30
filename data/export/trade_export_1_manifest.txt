@@ -1,0 +1,9 @@
+export_job_id=1
+export_name=TRADE_CORE_CSV_EXPORT
+source_batch_id=36
+target_system=HADOOP_HDFS
+format=CSV
+data_file=trade_export_1_20260630212609111.csv
+hdfs_target_path=/data/mini_bop/trade
+row_count=5
+exported_at=2026-06-30 21:26:09.206
