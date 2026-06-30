@@ -50,6 +50,12 @@ PROMPT Compiling PKG_RECOVERY...
 PROMPT Compiling PKG_DATA_QUALITY...
 @oracle/packages/050_pkg_data_quality.sql
 
+PROMPT Compiling PKG_METADATA_ENGINE...
+@oracle/packages/051_pkg_metadata_engine.sql
+
+PROMPT Compiling PKG_AUDIT_LINEAGE...
+@oracle/packages/052_pkg_audit_lineage.sql
+
 PROMPT Checking compilation errors...
 SHOW ERRORS PACKAGE pkg_common
 SHOW ERRORS PACKAGE BODY pkg_common
@@ -80,5 +86,9 @@ SHOW ERRORS PACKAGE pkg_recovery
 SHOW ERRORS PACKAGE BODY pkg_recovery
 SHOW ERRORS PACKAGE pkg_data_quality
 SHOW ERRORS PACKAGE BODY pkg_data_quality
+SHOW ERRORS PACKAGE pkg_metadata_engine
+SHOW ERRORS PACKAGE BODY pkg_metadata_engine
+SHOW ERRORS PACKAGE pkg_audit_lineage
+SHOW ERRORS PACKAGE BODY pkg_audit_lineage
 
 PROMPT Core PL/SQL V2 installation completed.
