@@ -32,32 +32,34 @@ PROMPT Compiling PKG_TRADE_LOAD...
 PROMPT Compiling PKG_TRADE_LOAD_BULK...
 @oracle/packages/044_pkg_trade_load_bulk.sql
 
+PROMPT Compiling PKG_BATCH_SCHEDULER...
+@oracle/packages/045_pkg_batch_scheduler.sql
+
+PROMPT Compiling PKG_TRADE_PARALLEL...
+@oracle/packages/046_pkg_trade_parallel.sql
+
 PROMPT Checking compilation errors...
 SHOW ERRORS PACKAGE pkg_common
 SHOW ERRORS PACKAGE BODY pkg_common
-
 SHOW ERRORS PACKAGE pkg_log
 SHOW ERRORS PACKAGE BODY pkg_log
-
 SHOW ERRORS PACKAGE pkg_trade_validate
 SHOW ERRORS PACKAGE BODY pkg_trade_validate
-
 SHOW ERRORS PACKAGE pkg_trade_lookup
 SHOW ERRORS PACKAGE BODY pkg_trade_lookup
-
 SHOW ERRORS PACKAGE pkg_trade_types
 SHOW ERRORS PACKAGE BODY pkg_trade_types
-
 SHOW ERRORS PACKAGE pkg_trade_transform
 SHOW ERRORS PACKAGE BODY pkg_trade_transform
-
 SHOW ERRORS PACKAGE pkg_trade_event
 SHOW ERRORS PACKAGE BODY pkg_trade_event
-
 SHOW ERRORS PACKAGE pkg_trade_load
 SHOW ERRORS PACKAGE BODY pkg_trade_load
-
 SHOW ERRORS PACKAGE pkg_trade_load_bulk
 SHOW ERRORS PACKAGE BODY pkg_trade_load_bulk
+SHOW ERRORS PACKAGE pkg_batch_scheduler
+SHOW ERRORS PACKAGE BODY pkg_batch_scheduler
+SHOW ERRORS PACKAGE pkg_trade_parallel
+SHOW ERRORS PACKAGE BODY pkg_trade_parallel
 
 PROMPT Core PL/SQL V2 installation completed.
