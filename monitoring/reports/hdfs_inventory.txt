@@ -1,0 +1,144 @@
+# HDFS Inventory - Mini BOP
+generated_at=2026-07-01 23:00:17
+
+## /data/mini_bop
+drwxr-xr-x   - daniel supergroup          0 2026-07-01 14:12 /data/mini_bop/analytics
+drwxr-xr-x   - daniel supergroup          0 2026-07-01 14:12 /data/mini_bop/analytics/gold_dashboard_metrics
+-rw-r--r--   1 daniel supergroup          0 2026-07-01 14:12 /data/mini_bop/analytics/gold_dashboard_metrics/_SUCCESS
+-rw-r--r--   1 daniel supergroup       1214 2026-07-01 14:12 /data/mini_bop/analytics/gold_dashboard_metrics/part-00000-0064a998-ed64-448d-bac2-87141bd421fd-c000.snappy.parquet
+drwxr-xr-x   - daniel supergroup          0 2026-07-01 14:12 /data/mini_bop/analytics/gold_exposure_by_book
+-rw-r--r--   1 daniel supergroup          0 2026-07-01 14:12 /data/mini_bop/analytics/gold_exposure_by_book/_SUCCESS
+-rw-r--r--   1 daniel supergroup       2426 2026-07-01 14:12 /data/mini_bop/analytics/gold_exposure_by_book/part-00000-835aa374-6b63-49a3-9506-dfbfc28e3c18-c000.snappy.parquet
+drwxr-xr-x   - daniel supergroup          0 2026-07-01 14:12 /data/mini_bop/analytics/gold_exposure_by_counterparty
+-rw-r--r--   1 daniel supergroup          0 2026-07-01 14:12 /data/mini_bop/analytics/gold_exposure_by_counterparty/_SUCCESS
+-rw-r--r--   1 daniel supergroup       2450 2026-07-01 14:12 /data/mini_bop/analytics/gold_exposure_by_counterparty/part-00000-4fe10be3-7745-4ab6-a373-51059fba8e22-c000.snappy.parquet
+drwxr-xr-x   - daniel supergroup          0 2026-07-01 14:12 /data/mini_bop/analytics/gold_exposure_by_currency
+-rw-r--r--   1 daniel supergroup          0 2026-07-01 14:12 /data/mini_bop/analytics/gold_exposure_by_currency/_SUCCESS
+-rw-r--r--   1 daniel supergroup       3000 2026-07-01 14:12 /data/mini_bop/analytics/gold_exposure_by_currency/part-00000-e9b66737-61da-4900-8411-853daf39eaa3-c000.snappy.parquet
+drwxr-xr-x   - daniel supergroup          0 2026-07-01 14:12 /data/mini_bop/analytics/gold_exposure_by_portfolio
+-rw-r--r--   1 daniel supergroup          0 2026-07-01 14:12 /data/mini_bop/analytics/gold_exposure_by_portfolio/_SUCCESS
+-rw-r--r--   1 daniel supergroup       2440 2026-07-01 14:12 /data/mini_bop/analytics/gold_exposure_by_portfolio/part-00000-9b5387da-6301-4b45-aadd-634762953130-c000.snappy.parquet
+drwxr-xr-x   - daniel supergroup          0 2026-07-01 14:12 /data/mini_bop/analytics/gold_top_trades_by_amount
+-rw-r--r--   1 daniel supergroup          0 2026-07-01 14:12 /data/mini_bop/analytics/gold_top_trades_by_amount/_SUCCESS
+-rw-r--r--   1 daniel supergroup       4191 2026-07-01 14:12 /data/mini_bop/analytics/gold_top_trades_by_amount/part-00000-c2babcd8-74e9-4463-8e9f-869b5397d24f-c000.snappy.parquet
+drwxr-xr-x   - daniel supergroup          0 2026-07-01 14:12 /data/mini_bop/analytics/silver_trade_enriched
+-rw-r--r--   1 daniel supergroup          0 2026-07-01 14:12 /data/mini_bop/analytics/silver_trade_enriched/_SUCCESS
+-rw-r--r--   1 daniel supergroup       7347 2026-07-01 14:12 /data/mini_bop/analytics/silver_trade_enriched/part-00000-0fabcaab-517c-419f-a49d-8213f53a9dae-c000.snappy.parquet
+drwxrwxr-x   - daniel supergroup          0 2026-06-30 22:34 /data/mini_bop/archive
+drwxrwxr-x   - daniel supergroup          0 2026-06-30 22:34 /data/mini_bop/archive/trade
+drwxr-xr-x   - daniel supergroup          0 2026-07-01 09:21 /data/mini_bop/hive
+drwxr-xr-x   - daniel supergroup          0 2026-07-01 11:07 /data/mini_bop/hive/trade_core_csv
+-rw-r--r--   1 daniel supergroup       1096 2026-07-01 11:07 /data/mini_bop/hive/trade_core_csv/trade_export_1_20260630212609111.csv
+drwxr-xr-x   - daniel supergroup          0 2026-07-01 17:06 /data/mini_bop/incremental
+drwxr-xr-x   - daniel supergroup          0 2026-07-01 17:06 /data/mini_bop/incremental/bronze_incremental_batches
+-rw-r--r--   1 daniel supergroup          0 2026-07-01 17:06 /data/mini_bop/incremental/bronze_incremental_batches/_SUCCESS
+-rw-r--r--   1 daniel supergroup       8310 2026-07-01 17:06 /data/mini_bop/incremental/bronze_incremental_batches/part-00000-9b467f51-d3ed-4069-bb25-c0c3ffc732c3-c000.snappy.parquet
+drwxr-xr-x   - daniel supergroup          0 2026-07-01 17:06 /data/mini_bop/incremental/control_incremental_checkpoint
+-rw-r--r--   1 daniel supergroup          0 2026-07-01 17:06 /data/mini_bop/incremental/control_incremental_checkpoint/_SUCCESS
+-rw-r--r--   1 daniel supergroup       1521 2026-07-01 17:06 /data/mini_bop/incremental/control_incremental_checkpoint/part-00000-dac80bb4-d16c-4d4a-a1eb-bf8317d94a17-c000.snappy.parquet
+drwxr-xr-x   - daniel supergroup          0 2026-07-01 17:06 /data/mini_bop/incremental/control_spark_job_history
+-rw-r--r--   1 daniel supergroup          0 2026-07-01 17:06 /data/mini_bop/incremental/control_spark_job_history/_SUCCESS
+-rw-r--r--   1 daniel supergroup       3260 2026-07-01 17:06 /data/mini_bop/incremental/control_spark_job_history/part-00000-ba99f87d-fa7a-4338-a090-592a211a8401-c000.snappy.parquet
+drwxr-xr-x   - daniel supergroup          0 2026-07-01 17:06 /data/mini_bop/incremental/gold_incremental_currency_summary
+-rw-r--r--   1 daniel supergroup          0 2026-07-01 17:06 /data/mini_bop/incremental/gold_incremental_currency_summary/_SUCCESS
+-rw-r--r--   1 daniel supergroup       1751 2026-07-01 17:06 /data/mini_bop/incremental/gold_incremental_currency_summary/part-00000-06ba4212-c353-423c-8074-fbc6324b5035-c000.snappy.parquet
+drwxr-xr-x   - daniel supergroup          0 2026-07-01 17:06 /data/mini_bop/incremental/gold_incremental_metrics
+-rw-r--r--   1 daniel supergroup          0 2026-07-01 17:06 /data/mini_bop/incremental/gold_incremental_metrics/_SUCCESS
+-rw-r--r--   1 daniel supergroup       1212 2026-07-01 17:06 /data/mini_bop/incremental/gold_incremental_metrics/part-00000-65cdd506-b7ab-4cb8-9359-f0f132b62aac-c000.snappy.parquet
+drwxr-xr-x   - daniel supergroup          0 2026-07-01 17:06 /data/mini_bop/incremental/silver_current_trades
+-rw-r--r--   1 daniel supergroup          0 2026-07-01 17:06 /data/mini_bop/incremental/silver_current_trades/_SUCCESS
+-rw-r--r--   1 daniel supergroup       8196 2026-07-01 17:06 /data/mini_bop/incremental/silver_current_trades/part-00000-713b6d3a-d89e-4fda-b22b-baf48a8e5b56-c000.snappy.parquet
+drwxr-xr-x   - daniel supergroup          0 2026-07-01 17:06 /data/mini_bop/incremental/silver_trade_change_log
+-rw-r--r--   1 daniel supergroup          0 2026-07-01 17:06 /data/mini_bop/incremental/silver_trade_change_log/_SUCCESS
+-rw-r--r--   1 daniel supergroup       2749 2026-07-01 17:06 /data/mini_bop/incremental/silver_trade_change_log/part-00000-c1fea4c6-b864-4f7a-a897-c3ae040c8191-c000.snappy.parquet
+drwxr-xr-x   - daniel supergroup          0 2026-07-01 17:06 /data/mini_bop/incremental/silver_trade_history
+-rw-r--r--   1 daniel supergroup          0 2026-07-01 17:06 /data/mini_bop/incremental/silver_trade_history/_SUCCESS
+-rw-r--r--   1 daniel supergroup       8428 2026-07-01 17:06 /data/mini_bop/incremental/silver_trade_history/part-00000-08c94a85-b3f4-43fe-9883-e73d182ffff7-c000.snappy.parquet
+drwxr-xr-x   - daniel supergroup          0 2026-07-01 13:41 /data/mini_bop/spark
+drwxr-xr-x   - daniel supergroup          0 2026-07-01 13:41 /data/mini_bop/spark/trade_curated
+-rw-r--r--   1 daniel supergroup          0 2026-07-01 13:41 /data/mini_bop/spark/trade_curated/_SUCCESS
+-rw-r--r--   1 daniel supergroup       6386 2026-07-01 13:41 /data/mini_bop/spark/trade_curated/part-00000-8747f495-48e2-4c26-a315-496a0c72fe89-c000.snappy.parquet
+drwxr-xr-x   - daniel supergroup          0 2026-07-01 13:41 /data/mini_bop/spark/trade_quality_metrics
+-rw-r--r--   1 daniel supergroup          0 2026-07-01 13:41 /data/mini_bop/spark/trade_quality_metrics/_SUCCESS
+-rw-r--r--   1 daniel supergroup        912 2026-07-01 13:41 /data/mini_bop/spark/trade_quality_metrics/part-00000-bfe6a438-2dc1-42e3-b1ca-f069edce4b6f-c000.snappy.parquet
+drwxr-xr-x   - daniel supergroup          0 2026-07-01 13:41 /data/mini_bop/spark/trade_summary_by_buy_sell
+-rw-r--r--   1 daniel supergroup          0 2026-07-01 13:41 /data/mini_bop/spark/trade_summary_by_buy_sell/_SUCCESS
+-rw-r--r--   1 daniel supergroup       1395 2026-07-01 13:41 /data/mini_bop/spark/trade_summary_by_buy_sell/part-00000-fd5359de-1a29-4211-82f9-9d47d48a0380-c000.snappy.parquet
+drwxr-xr-x   - daniel supergroup          0 2026-07-01 13:41 /data/mini_bop/spark/trade_summary_by_currency
+-rw-r--r--   1 daniel supergroup          0 2026-07-01 13:41 /data/mini_bop/spark/trade_summary_by_currency/_SUCCESS
+-rw-r--r--   1 daniel supergroup       1737 2026-07-01 13:41 /data/mini_bop/spark/trade_summary_by_currency/part-00000-3c7363e0-8751-4cab-99f6-b066682067c2-c000.snappy.parquet
+drwxrwxr-x   - daniel supergroup          0 2026-06-30 22:35 /data/mini_bop/trade
+-rw-r--r--   1 daniel supergroup       1096 2026-06-30 22:35 /data/mini_bop/trade/trade_export_1_20260630212609111.csv
+-rw-r--r--   1 daniel supergroup        248 2026-06-30 22:35 /data/mini_bop/trade/trade_export_1_manifest.txt
+
+## /data/mini_bop/trade
+-rw-r--r--   1 daniel supergroup       1096 2026-06-30 22:35 /data/mini_bop/trade/trade_export_1_20260630212609111.csv
+-rw-r--r--   1 daniel supergroup        248 2026-06-30 22:35 /data/mini_bop/trade/trade_export_1_manifest.txt
+
+## /data/mini_bop/hive
+drwxr-xr-x   - daniel supergroup          0 2026-07-01 11:07 /data/mini_bop/hive/trade_core_csv
+-rw-r--r--   1 daniel supergroup       1096 2026-07-01 11:07 /data/mini_bop/hive/trade_core_csv/trade_export_1_20260630212609111.csv
+
+## /data/mini_bop/spark
+drwxr-xr-x   - daniel supergroup          0 2026-07-01 13:41 /data/mini_bop/spark/trade_curated
+-rw-r--r--   1 daniel supergroup          0 2026-07-01 13:41 /data/mini_bop/spark/trade_curated/_SUCCESS
+-rw-r--r--   1 daniel supergroup       6386 2026-07-01 13:41 /data/mini_bop/spark/trade_curated/part-00000-8747f495-48e2-4c26-a315-496a0c72fe89-c000.snappy.parquet
+drwxr-xr-x   - daniel supergroup          0 2026-07-01 13:41 /data/mini_bop/spark/trade_quality_metrics
+-rw-r--r--   1 daniel supergroup          0 2026-07-01 13:41 /data/mini_bop/spark/trade_quality_metrics/_SUCCESS
+-rw-r--r--   1 daniel supergroup        912 2026-07-01 13:41 /data/mini_bop/spark/trade_quality_metrics/part-00000-bfe6a438-2dc1-42e3-b1ca-f069edce4b6f-c000.snappy.parquet
+drwxr-xr-x   - daniel supergroup          0 2026-07-01 13:41 /data/mini_bop/spark/trade_summary_by_buy_sell
+-rw-r--r--   1 daniel supergroup          0 2026-07-01 13:41 /data/mini_bop/spark/trade_summary_by_buy_sell/_SUCCESS
+-rw-r--r--   1 daniel supergroup       1395 2026-07-01 13:41 /data/mini_bop/spark/trade_summary_by_buy_sell/part-00000-fd5359de-1a29-4211-82f9-9d47d48a0380-c000.snappy.parquet
+drwxr-xr-x   - daniel supergroup          0 2026-07-01 13:41 /data/mini_bop/spark/trade_summary_by_currency
+-rw-r--r--   1 daniel supergroup          0 2026-07-01 13:41 /data/mini_bop/spark/trade_summary_by_currency/_SUCCESS
+-rw-r--r--   1 daniel supergroup       1737 2026-07-01 13:41 /data/mini_bop/spark/trade_summary_by_currency/part-00000-3c7363e0-8751-4cab-99f6-b066682067c2-c000.snappy.parquet
+
+## /data/mini_bop/analytics
+drwxr-xr-x   - daniel supergroup          0 2026-07-01 14:12 /data/mini_bop/analytics/gold_dashboard_metrics
+-rw-r--r--   1 daniel supergroup          0 2026-07-01 14:12 /data/mini_bop/analytics/gold_dashboard_metrics/_SUCCESS
+-rw-r--r--   1 daniel supergroup       1214 2026-07-01 14:12 /data/mini_bop/analytics/gold_dashboard_metrics/part-00000-0064a998-ed64-448d-bac2-87141bd421fd-c000.snappy.parquet
+drwxr-xr-x   - daniel supergroup          0 2026-07-01 14:12 /data/mini_bop/analytics/gold_exposure_by_book
+-rw-r--r--   1 daniel supergroup          0 2026-07-01 14:12 /data/mini_bop/analytics/gold_exposure_by_book/_SUCCESS
+-rw-r--r--   1 daniel supergroup       2426 2026-07-01 14:12 /data/mini_bop/analytics/gold_exposure_by_book/part-00000-835aa374-6b63-49a3-9506-dfbfc28e3c18-c000.snappy.parquet
+drwxr-xr-x   - daniel supergroup          0 2026-07-01 14:12 /data/mini_bop/analytics/gold_exposure_by_counterparty
+-rw-r--r--   1 daniel supergroup          0 2026-07-01 14:12 /data/mini_bop/analytics/gold_exposure_by_counterparty/_SUCCESS
+-rw-r--r--   1 daniel supergroup       2450 2026-07-01 14:12 /data/mini_bop/analytics/gold_exposure_by_counterparty/part-00000-4fe10be3-7745-4ab6-a373-51059fba8e22-c000.snappy.parquet
+drwxr-xr-x   - daniel supergroup          0 2026-07-01 14:12 /data/mini_bop/analytics/gold_exposure_by_currency
+-rw-r--r--   1 daniel supergroup          0 2026-07-01 14:12 /data/mini_bop/analytics/gold_exposure_by_currency/_SUCCESS
+-rw-r--r--   1 daniel supergroup       3000 2026-07-01 14:12 /data/mini_bop/analytics/gold_exposure_by_currency/part-00000-e9b66737-61da-4900-8411-853daf39eaa3-c000.snappy.parquet
+drwxr-xr-x   - daniel supergroup          0 2026-07-01 14:12 /data/mini_bop/analytics/gold_exposure_by_portfolio
+-rw-r--r--   1 daniel supergroup          0 2026-07-01 14:12 /data/mini_bop/analytics/gold_exposure_by_portfolio/_SUCCESS
+-rw-r--r--   1 daniel supergroup       2440 2026-07-01 14:12 /data/mini_bop/analytics/gold_exposure_by_portfolio/part-00000-9b5387da-6301-4b45-aadd-634762953130-c000.snappy.parquet
+drwxr-xr-x   - daniel supergroup          0 2026-07-01 14:12 /data/mini_bop/analytics/gold_top_trades_by_amount
+-rw-r--r--   1 daniel supergroup          0 2026-07-01 14:12 /data/mini_bop/analytics/gold_top_trades_by_amount/_SUCCESS
+-rw-r--r--   1 daniel supergroup       4191 2026-07-01 14:12 /data/mini_bop/analytics/gold_top_trades_by_amount/part-00000-c2babcd8-74e9-4463-8e9f-869b5397d24f-c000.snappy.parquet
+drwxr-xr-x   - daniel supergroup          0 2026-07-01 14:12 /data/mini_bop/analytics/silver_trade_enriched
+-rw-r--r--   1 daniel supergroup          0 2026-07-01 14:12 /data/mini_bop/analytics/silver_trade_enriched/_SUCCESS
+-rw-r--r--   1 daniel supergroup       7347 2026-07-01 14:12 /data/mini_bop/analytics/silver_trade_enriched/part-00000-0fabcaab-517c-419f-a49d-8213f53a9dae-c000.snappy.parquet
+
+## /data/mini_bop/incremental
+drwxr-xr-x   - daniel supergroup          0 2026-07-01 17:06 /data/mini_bop/incremental/bronze_incremental_batches
+-rw-r--r--   1 daniel supergroup          0 2026-07-01 17:06 /data/mini_bop/incremental/bronze_incremental_batches/_SUCCESS
+-rw-r--r--   1 daniel supergroup       8310 2026-07-01 17:06 /data/mini_bop/incremental/bronze_incremental_batches/part-00000-9b467f51-d3ed-4069-bb25-c0c3ffc732c3-c000.snappy.parquet
+drwxr-xr-x   - daniel supergroup          0 2026-07-01 17:06 /data/mini_bop/incremental/control_incremental_checkpoint
+-rw-r--r--   1 daniel supergroup          0 2026-07-01 17:06 /data/mini_bop/incremental/control_incremental_checkpoint/_SUCCESS
+-rw-r--r--   1 daniel supergroup       1521 2026-07-01 17:06 /data/mini_bop/incremental/control_incremental_checkpoint/part-00000-dac80bb4-d16c-4d4a-a1eb-bf8317d94a17-c000.snappy.parquet
+drwxr-xr-x   - daniel supergroup          0 2026-07-01 17:06 /data/mini_bop/incremental/control_spark_job_history
+-rw-r--r--   1 daniel supergroup          0 2026-07-01 17:06 /data/mini_bop/incremental/control_spark_job_history/_SUCCESS
+-rw-r--r--   1 daniel supergroup       3260 2026-07-01 17:06 /data/mini_bop/incremental/control_spark_job_history/part-00000-ba99f87d-fa7a-4338-a090-592a211a8401-c000.snappy.parquet
+drwxr-xr-x   - daniel supergroup          0 2026-07-01 17:06 /data/mini_bop/incremental/gold_incremental_currency_summary
+-rw-r--r--   1 daniel supergroup          0 2026-07-01 17:06 /data/mini_bop/incremental/gold_incremental_currency_summary/_SUCCESS
+-rw-r--r--   1 daniel supergroup       1751 2026-07-01 17:06 /data/mini_bop/incremental/gold_incremental_currency_summary/part-00000-06ba4212-c353-423c-8074-fbc6324b5035-c000.snappy.parquet
+drwxr-xr-x   - daniel supergroup          0 2026-07-01 17:06 /data/mini_bop/incremental/gold_incremental_metrics
+-rw-r--r--   1 daniel supergroup          0 2026-07-01 17:06 /data/mini_bop/incremental/gold_incremental_metrics/_SUCCESS
+-rw-r--r--   1 daniel supergroup       1212 2026-07-01 17:06 /data/mini_bop/incremental/gold_incremental_metrics/part-00000-65cdd506-b7ab-4cb8-9359-f0f132b62aac-c000.snappy.parquet
+drwxr-xr-x   - daniel supergroup          0 2026-07-01 17:06 /data/mini_bop/incremental/silver_current_trades
+-rw-r--r--   1 daniel supergroup          0 2026-07-01 17:06 /data/mini_bop/incremental/silver_current_trades/_SUCCESS
+-rw-r--r--   1 daniel supergroup       8196 2026-07-01 17:06 /data/mini_bop/incremental/silver_current_trades/part-00000-713b6d3a-d89e-4fda-b22b-baf48a8e5b56-c000.snappy.parquet
+drwxr-xr-x   - daniel supergroup          0 2026-07-01 17:06 /data/mini_bop/incremental/silver_trade_change_log
+-rw-r--r--   1 daniel supergroup          0 2026-07-01 17:06 /data/mini_bop/incremental/silver_trade_change_log/_SUCCESS
+-rw-r--r--   1 daniel supergroup       2749 2026-07-01 17:06 /data/mini_bop/incremental/silver_trade_change_log/part-00000-c1fea4c6-b864-4f7a-a897-c3ae040c8191-c000.snappy.parquet
+drwxr-xr-x   - daniel supergroup          0 2026-07-01 17:06 /data/mini_bop/incremental/silver_trade_history
+-rw-r--r--   1 daniel supergroup          0 2026-07-01 17:06 /data/mini_bop/incremental/silver_trade_history/_SUCCESS
+-rw-r--r--   1 daniel supergroup       8428 2026-07-01 17:06 /data/mini_bop/incremental/silver_trade_history/part-00000-08c94a85-b3f4-43fe-9883-e73d182ffff7-c000.snappy.parquet
+

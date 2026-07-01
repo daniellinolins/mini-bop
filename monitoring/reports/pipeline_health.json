@@ -1,0 +1,123 @@
+{
+  "checks": {
+    "analytics_gold_dashboard_metrics": {
+      "error": null,
+      "path": "hdfs://localhost:9000/data/mini_bop/analytics/gold_dashboard_metrics",
+      "row_count": 5,
+      "status": "OK"
+    },
+    "analytics_silver_trade_enriched": {
+      "error": null,
+      "path": "hdfs://localhost:9000/data/mini_bop/analytics/silver_trade_enriched",
+      "row_count": 5,
+      "status": "OK"
+    },
+    "business_incremental_metrics": {
+      "actual_current_trade_rows": 6.0,
+      "expected_current_trade_rows": 6,
+      "metrics": {
+        "BRONZE_CHANGE_ROWS": 7.0,
+        "CHANGE_LOG_ROWS": 7.0,
+        "CURRENT_TRADE_ROWS": 6.0,
+        "HISTORY_ROWS": 7.0,
+        "LAST_PROCESSED_BATCH_ID": 2.0
+      },
+      "status": "OK"
+    },
+    "business_no_duplicate_current_trades": {
+      "duplicate_keys": 0,
+      "status": "OK"
+    },
+    "hdfs_analytics_layer": {
+      "exists": true,
+      "path": "hdfs://localhost:9000/data/mini_bop/analytics",
+      "status": "OK"
+    },
+    "hdfs_hive_layer": {
+      "exists": true,
+      "path": "hdfs://localhost:9000/data/mini_bop/hive",
+      "status": "OK"
+    },
+    "hdfs_incremental_layer": {
+      "exists": true,
+      "path": "hdfs://localhost:9000/data/mini_bop/incremental",
+      "status": "OK"
+    },
+    "hdfs_spark_layer": {
+      "exists": true,
+      "path": "hdfs://localhost:9000/data/mini_bop/spark",
+      "status": "OK"
+    },
+    "hdfs_trade_landing": {
+      "exists": true,
+      "path": "hdfs://localhost:9000/data/mini_bop/trade",
+      "status": "OK"
+    },
+    "incremental_bronze_batches": {
+      "error": null,
+      "path": "hdfs://localhost:9000/data/mini_bop/incremental/bronze_incremental_batches",
+      "row_count": 7,
+      "status": "OK"
+    },
+    "incremental_change_log": {
+      "error": null,
+      "path": "hdfs://localhost:9000/data/mini_bop/incremental/silver_trade_change_log",
+      "row_count": 7,
+      "status": "OK"
+    },
+    "incremental_checkpoint": {
+      "checkpoint_status": "READY",
+      "error": null,
+      "last_processed_batch_id": 2,
+      "path": "hdfs://localhost:9000/data/mini_bop/incremental/control_incremental_checkpoint",
+      "row_count": 1,
+      "status": "OK"
+    },
+    "incremental_currency_summary": {
+      "error": null,
+      "path": "hdfs://localhost:9000/data/mini_bop/incremental/gold_incremental_currency_summary",
+      "row_count": 2,
+      "status": "OK"
+    },
+    "incremental_current_trades": {
+      "error": null,
+      "path": "hdfs://localhost:9000/data/mini_bop/incremental/silver_current_trades",
+      "row_count": 6,
+      "status": "OK"
+    },
+    "incremental_job_history": {
+      "error": null,
+      "path": "hdfs://localhost:9000/data/mini_bop/incremental/control_spark_job_history",
+      "row_count": 3,
+      "status": "OK"
+    },
+    "incremental_metrics": {
+      "error": null,
+      "path": "hdfs://localhost:9000/data/mini_bop/incremental/gold_incremental_metrics",
+      "row_count": 5,
+      "status": "OK"
+    },
+    "incremental_trade_history": {
+      "error": null,
+      "path": "hdfs://localhost:9000/data/mini_bop/incremental/silver_trade_history",
+      "row_count": 7,
+      "status": "OK"
+    },
+    "spark_summary_by_currency": {
+      "error": null,
+      "path": "hdfs://localhost:9000/data/mini_bop/spark/trade_summary_by_currency",
+      "row_count": 2,
+      "status": "OK"
+    },
+    "spark_trade_curated": {
+      "error": null,
+      "path": "hdfs://localhost:9000/data/mini_bop/spark/trade_curated",
+      "row_count": 5,
+      "status": "OK"
+    }
+  },
+  "generated_at": "2026-07-01T22:00:53.815592+00:00",
+  "overall_status": "HEALTHY",
+  "phase": "24 - Observability & Monitoring",
+  "project": "Mini BOP"
+}
