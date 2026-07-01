@@ -1,0 +1,173 @@
+# ============================================================
+# MINI BOP - ORACLE -> HADOOP CHECKLIST
+# Executar no WSL
+# Projeto:
+# /mnt/f/SSD_DEV/windows/projects/mini-bop
+# ============================================================
+
+# 1) Ir para a pasta do projeto
+cd /mnt/f/SSD_DEV/windows/projects/mini-bop
+
+
+# ============================================================
+# 2) Verificar se o Hadoop está configurado
+# ============================================================
+
+# Mostra onde está instalado/configurado o Hadoop
+echo $HADOOP_HOME
+
+# Confirma a versão do Hadoop
+hadoop version
+
+# Verifica os processos Java/Hadoop ativos
+jps
+
+# Esperado para HDFS:
+# NameNode
+# DataNode
+# SecondaryNameNode
+#
+# Esperado para YARN:
+# ResourceManager
+# NodeManager
+
+
+# ============================================================
+# 3) Iniciar HDFS/YARN se necessário
+# ============================================================
+
+# Inicia o HDFS: NameNode, DataNode, SecondaryNameNode
+start-dfs.sh
+
+# Inicia o YARN: ResourceManager, NodeManager
+start-yarn.sh
+
+# Verifica novamente se os serviços subiram
+jps
+
+
+# ============================================================
+# 4) Se o NameNode NÃO aparecer no jps
+# ============================================================
+
+# Verificar logs do NameNode
+grep -iE "ERROR|FATAL|Exception|Storage|format|Inconsistent|clusterID" \
+$HADOOP_HOME/logs/hadoop-daniel-namenode-DESKTOP-U17T10M.log | tail -80
+
+# Se aparecer:
+# java.io.IOException: NameNode is not formatted.
+#
+# Então formatar o NameNode:
+hdfs namenode -format
+
+# Depois iniciar novamente o HDFS
+start-dfs.sh
+
+# Confirmar se NameNode subiu
+jps
+
+
+# ============================================================
+# 5) Testar se o HDFS está acessível
+# ============================================================
+
+# Lista a raiz do HDFS
+hdfs dfs -ls /
+
+# Se não retornar erro, o HDFS está OK.
+# Se retornar "Connection refused localhost:9000",
+# o NameNode não está ativo.
+
+
+# ============================================================
+# 6) Criar a landing zone do Mini BOP no HDFS
+# ============================================================
+
+# Cria o diretório HDFS:
+# /data/mini_bop/trade
+bash hadoop/hdfs/180_create_hdfs_dirs.sh
+
+# Validar se foi criado
+hdfs dfs -ls /data
+hdfs dfs -ls /data/mini_bop
+hdfs dfs -ls /data/mini_bop/trade
+
+
+# ============================================================
+# 7) Exportar dados no Oracle
+# ============================================================
+
+# Esta parte é no SQLPlus, não no WSL:
+#
+# sqlplus mini_bop/mini_bop@localhost:1521/XEPDB1
+#
+# Depois executar:
+#
+# @scripts/run_phase18_as_mini_bop.sql
+# @scripts/validate_phase18.sql
+#
+# Resultado esperado:
+# export_status = SUCCESS
+# export_health = READY_FOR_HDFS
+# CSV criado em:
+# F:\SSD_DEV\windows\projects\mini-bop\data\export
+
+
+# ============================================================
+# 8) Verificar os arquivos exportados localmente pelo Oracle
+# ============================================================
+
+# Ver os arquivos na pasta local exportada pelo Oracle
+ls -la /mnt/f/SSD_DEV/windows/projects/mini-bop/data/export
+
+# Esperado:
+# trade_export_1_YYYYMMDDHHMISS.csv
+# trade_export_1_manifest.txt
+
+
+# ============================================================
+# 9) Fazer upload dos arquivos locais para o HDFS
+# ============================================================
+
+bash hadoop/hdfs/181_upload_exports_to_hdfs.sh \
+  /mnt/f/SSD_DEV/windows/projects/mini-bop/data/export \
+  /data/mini_bop/trade
+
+
+# ============================================================
+# 10) Validar arquivos no HDFS
+# ============================================================
+
+# Lista os arquivos carregados no HDFS
+hdfs dfs -ls /data/mini_bop/trade
+
+# Ler o manifest no HDFS
+hdfs dfs -cat /data/mini_bop/trade/trade_export_1_manifest.txt
+
+# Ver o início do CSV no HDFS
+hdfs dfs -head /data/mini_bop/trade/trade_export_1_20260630212609111.csv
+
+
+# ============================================================
+# 11) Se o nome do CSV mudar
+# ============================================================
+
+# Listar o arquivo real:
+hdfs dfs -ls /data/mini_bop/trade
+
+# Depois usar o nome apresentado no comando:
+hdfs dfs -head /data/mini_bop/trade/NOME_REAL_DO_ARQUIVO.csv
+
+
+# ============================================================
+# 12) Parar Hadoop, se quiser encerrar o ambiente
+# ============================================================
+
+# Para YARN
+stop-yarn.sh
+
+# Para HDFS
+stop-dfs.sh
+
+# Confirmar processos restantes
+jps
