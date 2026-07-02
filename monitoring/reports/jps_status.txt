@@ -1,6 +1,6 @@
-880 SecondaryNameNode
-2946 NameNode
-709 DataNode
-27719 Jps
-1241 NodeManager
-1118 ResourceManager
+3984 Jps
+3138 SecondaryNameNode
+2965 DataNode
+2854 NameNode
+3463 ResourceManager
+3579 NodeManager

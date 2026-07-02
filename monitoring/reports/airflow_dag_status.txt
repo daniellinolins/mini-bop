@@ -1,11 +1,8 @@
 # Airflow DAG Status
-generated_at=2026-07-01 23:00:40
+generated_at=2026-07-02 17:25:06
 
 /home/daniel/airflow-mini-bop/.venv/lib/python3.12/site-packages/airflow/cli/commands/dag_command.py:48 UserWarning: Could not import graphviz. Rendering graph to the graphical format will not be possible.
-dag_id                       | fileloc                                                                       | owners      | is_paused
-=============================+===============================================================================+=============+==========
-mini_bop_end_to_end_pipeline | /home/daniel/airflow-mini-bop/airflow_home/dags/mini_bop_orchestration_dag.py | daniel_lins | True     
-                                                                                                                                      
+ERROR: You need to initialize the database. Please run `airflow db init`. Make sure the command is run using Airflow version 2.10.5.
 
 /home/daniel/airflow-mini-bop/.venv/lib/python3.12/site-packages/airflow/cli/commands/dag_command.py:48 UserWarning: Could not import graphviz. Rendering graph to the graphical format will not be possible.
-No data found
+ERROR: You need to initialize the database. Please run `airflow db init`. Make sure the command is run using Airflow version 2.10.5.
