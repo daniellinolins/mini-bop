@@ -76,7 +76,7 @@ The Oracle DIRECTORY object `MINI_BOP_EXPORT_DIR` points to:
 F:\SSD_DEV\windows\projects\mini-bop\data\export
 ```
 
-If your Oracle server runs inside Linux or Docker, create or replace the directory using a path visible to the Oracle server.
+If your Oracle server runs outside Windows, create or replace the directory using a path visible to the Oracle server.
 
 Example:
 

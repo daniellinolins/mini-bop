@@ -1,5 +1,5 @@
 # HDFS Inventory - Mini BOP
-generated_at=2026-07-02 17:24:44
+generated_at=2026-07-02 23:30:45
 
 ## /data/mini_bop
 drwxr-xr-x   - daniel supergroup          0 2026-07-01 14:12 /data/mini_bop/analytics

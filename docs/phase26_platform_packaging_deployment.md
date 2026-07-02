@@ -1,44 +1,96 @@
-# Mini BOP - Phase 26: Platform Packaging & Deployment
+# Mini BOP - Phase 26: Local Platform Packaging & Demo Readiness
 
 ## Goal
 
-Phase 26 packages the Mini BOP data platform so it is easier to run, validate and demonstrate.
+Phase 26 packages the already validated Mini BOP local platform so it can be started, checked and demonstrated with repeatable commands.
 
-The project already includes Oracle processing, Hadoop/HDFS, Hive, Spark, Airflow, monitoring, FastAPI and a dashboard. This phase adds a professional deployment layer around those components.
+The goal is not to change the architecture. The goal is to make the local WSL-based platform easier to operate during demos and interviews.
 
-## Scope
-
-This phase does **not** move Hadoop/Hive/Spark into Docker. They remain local services in WSL, because they were already installed and validated in previous phases.
-
-This phase does package:
-
-- FastAPI application container definition.
-- Environment variable template.
-- Docker Compose for the API layer.
-- Local platform bootstrap/check scripts.
-- Deployment documentation.
-
-## Files
+## Final local architecture
 
 ```text
-docker/api/Dockerfile
-docker/env/mini-bop.env.example
-docker-compose.api.yml
+Oracle PL/SQL pipeline
+        ↓
+Oracle CSV export
+        ↓
+HDFS landing zone
+        ↓
+Hive external tables
+        ↓
+Spark processing
+        ↓
+Spark SQL analytics
+        ↓
+Incremental layer
+        ↓
+Airflow orchestration
+        ↓
+Monitoring reports
+        ↓
+FastAPI + Swagger + Dashboard
+```
+
+## What this phase delivers
+
+```text
+config/mini-bop.local.env.example
 scripts/platform/260_check_environment.sh
 scripts/platform/261_start_local_platform.sh
 scripts/platform/262_validate_platform_packaging.sh
+api/scripts/250_install_api_deps.sh
+api/scripts/251_run_api.sh
+api/scripts/252_validate_api_phase25.sh
 docs/phase26_platform_packaging_deployment.md
+README.md
 ```
 
-## Local WSL execution
+## One-time setup
 
 ```bash
 cd /mnt/f/SSD_DEV/windows/projects/mini-bop
+
+source ~/airflow-mini-bop/.venv/bin/activate
+export MINI_BOP_PROJECT_ROOT=/mnt/f/SSD_DEV/windows/projects/mini-bop
+
+bash api/scripts/250_install_api_deps.sh
+```
+
+## Check the environment
+
+```bash
+cd /mnt/f/SSD_DEV/windows/projects/mini-bop
+
 source ~/airflow-mini-bop/.venv/bin/activate
 export MINI_BOP_PROJECT_ROOT=/mnt/f/SSD_DEV/windows/projects/mini-bop
 export MINI_BOP_API_PORT=8010
+
 bash scripts/platform/260_check_environment.sh
+```
+
+## Start the local platform
+
+```bash
 bash scripts/platform/261_start_local_platform.sh
+```
+
+This checks/starts HDFS and YARN, validates key HDFS paths and prints the recommended commands for Airflow and the API.
+
+## Refresh monitoring reports
+
+```bash
+bash monitoring/scripts/240_collect_pipeline_metrics.sh
+bash monitoring/scripts/241_validate_monitoring_phase24.sh
+```
+
+## Start the API
+
+```bash
+cd /mnt/f/SSD_DEV/windows/projects/mini-bop
+
+source ~/airflow-mini-bop/.venv/bin/activate
+export MINI_BOP_PROJECT_ROOT=/mnt/f/SSD_DEV/windows/projects/mini-bop
+export MINI_BOP_API_PORT=8010
+
 bash api/scripts/251_run_api.sh
 ```
 
@@ -49,40 +101,44 @@ http://localhost:8010/docs
 http://localhost:8010/dashboard
 ```
 
-## Docker API execution
+## Validate API
 
-The Docker API container expects Hadoop/HDFS to be reachable from the container host.
+In another terminal:
 
 ```bash
 cd /mnt/f/SSD_DEV/windows/projects/mini-bop
-docker compose -f docker-compose.api.yml build
-docker compose -f docker-compose.api.yml up -d
+
+source ~/airflow-mini-bop/.venv/bin/activate
+export MINI_BOP_PROJECT_ROOT=/mnt/f/SSD_DEV/windows/projects/mini-bop
+export MINI_BOP_API_BASE=http://localhost:8010
+
+bash api/scripts/252_validate_api_phase25.sh
 ```
 
-Open:
-
-```text
-http://localhost:8010/docs
-```
-
-Stop:
-
-```bash
-docker compose -f docker-compose.api.yml down
-```
-
-## Validation
+## Validate Phase 26
 
 ```bash
 bash scripts/platform/262_validate_platform_packaging.sh
 ```
 
-Expected result:
+Expected:
 
 ```text
-PHASE26_PLATFORM_PACKAGING_STATUS=PASSED
+PHASE26_LOCAL_PLATFORM_PACKAGING_STATUS=PASSED
 ```
 
-## Enterprise positioning
+## Demo positioning
 
-This phase demonstrates environment packaging, deployment discipline and operational readiness. It complements Airflow orchestration and monitoring with repeatable startup and validation commands.
+This phase demonstrates deployment discipline without adding unnecessary infrastructure complexity to the local lab. The project now has repeatable commands for environment validation, platform startup, monitoring refresh and API execution.
+
+For a technical interview, this gives a clean and credible demo flow:
+
+```text
+check environment
+start platform
+refresh monitoring
+start API
+open Swagger
+open dashboard
+explain architecture
+```

@@ -1,6 +1,6 @@
-3984 Jps
 3138 SecondaryNameNode
 2965 DataNode
 2854 NameNode
 3463 ResourceManager
 3579 NodeManager
+7356 Jps
