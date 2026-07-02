@@ -8,38 +8,63 @@
 <body>
   <main>
     <h1>Mini BOP Analytics Dashboard</h1>
+    <p class="subtitle">REST API & dashboard over HDFS/Spark analytical outputs.</p>
+
     <section class="cards">
       <div class="card"><span>Pipeline</span><strong>{{ metrics.overall_status }}</strong></div>
-      <div class="card"><span>Trades</span><strong>{{ metrics.total_trades }}</strong></div>
+      <div class="card"><span>Current trades</span><strong>{{ metrics.total_trades }}</strong></div>
       <div class="card"><span>Currencies</span><strong>{{ metrics.currency_groups }}</strong></div>
-      <div class="card"><span>Checkpoint Rows</span><strong>{{ metrics.checkpoint_rows }}</strong></div>
+      <div class="card"><span>Checkpoint rows</span><strong>{{ metrics.checkpoint_rows }}</strong></div>
     </section>
 
     <section>
       <h2>Exposure by Currency</h2>
-      <table><thead><tr><th>Currency</th><th>Trades</th><th>Total Amount EUR</th><th>Total Notional</th></tr></thead><tbody>
-      {% for row in currency %}
-        <tr><td>{{ row.trade_currency }}</td><td>{{ row.trade_count }}</td><td>{{ row.total_amount_eur }}</td><td>{{ row.total_notional_amount }}</td></tr>
-      {% endfor %}
-      </tbody></table>
+      <table>
+        <thead><tr><th>Currency</th><th>Trades</th><th>Total Amount EUR</th><th>Total Notional</th></tr></thead>
+        <tbody>
+        {% for row in currency %}
+          <tr>
+            <td>{{ row.trade_currency }}</td>
+            <td>{{ row.trade_count }}</td>
+            <td>{{ row.total_amount_eur }}</td>
+            <td>{{ row.total_notional_amount }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
     </section>
 
     <section>
       <h2>Top Trades</h2>
-      <table><thead><tr><th>Trade</th><th>Currency</th><th>Amount EUR</th><th>Status</th></tr></thead><tbody>
-      {% for row in top %}
-        <tr><td>{{ row.external_trade_id }}</td><td>{{ row.trade_currency }}</td><td>{{ row.amount_eur }}</td><td>{{ row.trade_status }}</td></tr>
-      {% endfor %}
-      </tbody></table>
+      <table>
+        <thead><tr><th>Trade</th><th>Currency</th><th>Amount EUR</th><th>Status</th></tr></thead>
+        <tbody>
+        {% for row in top %}
+          <tr>
+            <td>{{ row.external_trade_id }}</td>
+            <td>{{ row.trade_currency }}</td>
+            <td>{{ row.amount_eur }}</td>
+            <td>{{ row.trade_status or row.status or row.processing_status or '-' }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
     </section>
 
     <section>
       <h2>Health Checks</h2>
-      <table><thead><tr><th>Check</th><th>Status</th><th>Details</th></tr></thead><tbody>
-      {% for row in checks %}
-        <tr><td>{{ row.name }}</td><td>{{ row.status }}</td><td>{{ row.details }}</td></tr>
-      {% endfor %}
-      </tbody></table>
+      <table>
+        <thead><tr><th>Check</th><th>Status</th><th>Details</th></tr></thead>
+        <tbody>
+        {% for row in checks %}
+          <tr>
+            <td>{{ row.name }}</td>
+            <td>{{ row.status }}</td>
+            <td>{{ row.details or row.path or '' }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
     </section>
   </main>
 </body>
