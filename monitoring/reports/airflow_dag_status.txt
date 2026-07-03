@@ -1,5 +1,5 @@
 # Airflow DAG Status
-generated_at=2026-07-02 23:31:07
+generated_at=2026-07-03 00:26:38
 
 /home/daniel/airflow-mini-bop/.venv/lib/python3.12/site-packages/airflow/cli/commands/dag_command.py:48 UserWarning: Could not import graphviz. Rendering graph to the graphical format will not be possible.
 ERROR: You need to initialize the database. Please run `airflow db init`. Make sure the command is run using Airflow version 2.10.5.
