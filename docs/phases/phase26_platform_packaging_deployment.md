@@ -129,7 +129,7 @@ PHASE26_LOCAL_PLATFORM_PACKAGING_STATUS=PASSED
 
 ## Demo positioning
 
-This phase demonstrates deployment discipline without adding unnecessary infrastructure complexity to the local lab. The project now has repeatable commands for environment validation, platform startup, monitoring refresh and API execution.
+This phase demonstrates deployment discipline without adding unnecessary infrastructure complexity to the local platform. The project now has repeatable commands for environment validation, platform startup, monitoring refresh and API execution.
 
 For a technical interview, this gives a clean and credible demo flow:
 

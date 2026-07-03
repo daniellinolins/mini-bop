@@ -5,7 +5,7 @@
 -- ============================================================
 
 CREATE DATABASE IF NOT EXISTS mini_bop
-COMMENT 'Mini BOP analytical database for trade processing lab';
+COMMENT 'Mini BOP analytical database for trade processing platform';
 
 USE mini_bop;
 

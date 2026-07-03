@@ -10,4 +10,4 @@ This fix defines explicit PySpark schemas for:
 - job history
 - metrics
 
-This makes the local lab deterministic and avoids `[CANNOT_DETERMINE_TYPE]` errors.
+This makes the local platform deterministic and avoids `[CANNOT_DETERMINE_TYPE]` errors.

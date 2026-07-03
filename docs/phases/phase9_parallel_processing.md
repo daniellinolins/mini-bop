@@ -23,7 +23,7 @@ The goal is to simulate how a large financial batch can be split into chunks and
 
 ## Important Note
 
-This educational implementation uses chunked execution inside a single Oracle session. It prepares the architecture for true database parallelism, but it does not yet use `DBMS_PARALLEL_EXECUTE` workers.
+This reference implementation uses chunked execution inside a single Oracle session. It prepares the architecture for true database parallelism, but it does not yet use `DBMS_PARALLEL_EXECUTE` workers.
 
 The next enhancement can evolve this phase into real Oracle parallel execution.
 

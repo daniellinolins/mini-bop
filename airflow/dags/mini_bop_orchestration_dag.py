@@ -64,7 +64,7 @@ with DAG(
     doc_md="""
 # Mini BOP End-to-End Pipeline
 
-This DAG orchestrates the Mini BOP data engineering laboratory:
+This DAG orchestrates the Mini BOP Enterprise Data Engineering platformoratory:
 
 1. HDFS landing zone preparation
 2. Oracle export upload to HDFS

@@ -12,7 +12,7 @@ This job intentionally uses Parquet only (no Delta dependency) to demonstrate:
 - change log
 - simple schema evolution
 
-The implementation is driver-safe for the local WSL lab: small sample data is collected,
+The implementation is driver-safe for the local WSL platform: small sample data is collected,
 change sets are deterministically built on the driver, then written back as Spark DataFrames
 with explicit schemas.
 """

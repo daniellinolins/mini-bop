@@ -76,7 +76,7 @@ Converting a normal table into a partitioned table is a migration exercise. In r
 3. Plan partitioning at initial design time.
 4. Execute controlled downtime migration.
 
-For this lab, we use demo partitioned tables to safely study the strategy.
+For this reference implementation, demo partitioned tables are used to validate the partitioning strategy safely.
 
 ## Execution
 

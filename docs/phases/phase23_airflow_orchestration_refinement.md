@@ -8,7 +8,7 @@ Refines the Mini BOP Airflow DAG after UI validation.
 - Added reusable `mini_bop_bash()` task factory.
 - Added execution timeouts per task.
 - Added retry policy and retry delay.
-- Disabled email on failure/retry for the local lab.
+- Disabled email on failure/retry for the local platform.
 - Added `doc_md` at DAG and task level to improve Airflow UI presentation.
 - Kept the DAG manually triggered with `schedule_interval=None`.
 

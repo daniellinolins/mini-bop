@@ -37,7 +37,7 @@ start
 
 ## Why BashOperator?
 
-The lab intentionally uses BashOperator because each previous phase already has operational shell scripts. This keeps orchestration transparent and close to real production runbooks.
+The platform intentionally uses BashOperator because each previous phase already has operational shell scripts. This keeps orchestration transparent and close to real production runbooks.
 
 ## Concepts demonstrated
 

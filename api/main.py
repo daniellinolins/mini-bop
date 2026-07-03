@@ -32,7 +32,7 @@ reader = MiniBopDataReader()
 app = FastAPI(
     title="Mini BOP REST API",
     description=(
-        "REST API and lightweight dashboard for the Mini BOP data engineering lab. "
+        "REST API and lightweight dashboard for the Mini BOP Enterprise Data Engineering platform. "
         "The API exposes pipeline health, Spark/HDFS analytics, current trades, "
         "incremental checkpoint information and monitoring outputs generated in phases 20-24."
     ),
