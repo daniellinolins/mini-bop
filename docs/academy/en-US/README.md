@@ -1,15 +1,14 @@
 # Mini BOP Academy (EN-US)
 
-> Official technical onboarding path for the Mini BOP project.
+This Academy is the official onboarding guide for the Mini BOP project.
 
-This language track is currently being translated.
+## Study Order
 
-For the complete Academy content, use the PT-BR version:
+Follow the numbered modules in sequence.
 
-- [PT-BR Academy](../pt-BR/README.md)
+See also:
 
-Shared Academy resources:
-
-- [Academy Home](../README.md)
-- [Learning Path](../LEARNING_PATH.md)
-- [Glossary](../GLOSSARY.md)
+- ../README.md
+- ../LEARNING_PATH.md
+- ../GLOSSARY.md
+- ../STYLE_GUIDE.md

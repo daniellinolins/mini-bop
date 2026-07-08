@@ -1,4 +1,4 @@
-# Performance
+# Metadata Engine
 
 > English translation of the Mini BOP Academy module.
 
@@ -6,7 +6,7 @@
 
 ## Objective
 
-This module introduces **Performance** within the Mini BOP project.
+This module introduces **Metadata Engine** within the Mini BOP project.
 
 For implementation details, always use the project source code and technical documentation as the source of truth.
 

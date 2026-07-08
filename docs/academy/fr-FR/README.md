@@ -1,15 +1,14 @@
 # Mini BOP Academy (FR-FR)
 
-> Parcours officiel d'intégration technique du projet Mini BOP.
+Cette Academy est le guide officiel d'intégration technique du projet Mini BOP.
 
-Cette version est en cours de traduction.
+## Ordre d'étude
 
-Pour le contenu complet de l'Academy, utilisez la version PT-BR :
+Suivez les modules numérotés dans l'ordre.
 
-- [PT-BR Academy](../pt-BR/README.md)
+Voir aussi :
 
-Ressources communes :
-
-- [Academy Home](../README.md)
-- [Learning Path](../LEARNING_PATH.md)
-- [Glossary](../GLOSSARY.md)
+- ../README.md
+- ../LEARNING_PATH.md
+- ../GLOSSARY.md
+- ../STYLE_GUIDE.md
