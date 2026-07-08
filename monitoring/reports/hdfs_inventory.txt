@@ -1,5 +1,5 @@
 # HDFS Inventory - Mini BOP
-generated_at=2026-07-03 00:26:14
+generated_at=2026-07-03 18:28:50
 
 ## /data/mini_bop
 Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=/home/daniel/spark-tmp 
