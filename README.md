@@ -21,6 +21,7 @@ Mini BOP demonstrates the ability to design and implement a complete enterprise 
 - Provide operational monitoring, health checks and execution visibility.
 - Expose curated datasets through REST APIs and an analytical dashboard.
 - Package the local platform with bootstrap scripts for repeatable execution.
+- Provide structured onboarding material through the Mini BOP Academy.
 
 ---
 
@@ -61,6 +62,86 @@ Mini BOP is organized as a layered data platform. Each layer has a clear respons
 
 ---
 
+## Documentation Portal
+
+Use this section as the main entry point to the project documentation.
+
+### Getting Started
+
+| Document | Description |
+|---|---|
+| [Quick Start](docs/reference/QUICK_START.md) | Local startup and validation procedure. |
+| [Project Structure](docs/reference/PROJECT_STRUCTURE.md) | Repository organization and main folders. |
+| [Troubleshooting](docs/reference/TROUBLESHOOTING.md) | Known issues and recovery procedures. |
+| [FAQ](docs/reference/FAQ.md) | Common architectural and operational questions. |
+
+### Architecture and Design
+
+| Document | Description |
+|---|---|
+| [Architecture](docs/reference/ARCHITECTURE.md) | Platform architecture and layer responsibilities. |
+| [Technologies](docs/reference/TECHNOLOGIES.md) | Technology stack and architectural roles. |
+| [Domain Model](docs/DOMAIN_MODEL.md) | Business concepts and domain vocabulary. |
+| [System Context](docs/SYSTEM_CONTEXT.md) | System boundaries and external context. |
+| [Context Diagram](docs/CONTEXT_DIAGRAM.md) | High-level system context diagram. |
+| [Component Diagram](docs/COMPONENT_DIAGRAM.md) | Internal architectural responsibility map. |
+| [Sequence Diagrams](docs/SEQUENCE_DIAGRAMS.md) | Conceptual processing flows. |
+
+### Planning and Decisions
+
+| Document | Description |
+|---|---|
+| [Roadmap](docs/reference/ROADMAP.md) | Phase-by-phase project evolution. |
+| [Architecture Decision Records](docs/decisions/README.md) | Architectural decision documentation. |
+| [ADR Index](docs/decisions/ADR_INDEX.md) | Index of documented architecture decisions. |
+
+---
+
+## Mini BOP Academy
+
+The **Mini BOP Academy** is a guided onboarding path for developers, data engineers and architects who want to understand the project progressively, from business concepts to code and architecture.
+
+### Start here
+
+| Resource | Description |
+|---|---|
+| [Academy Home](docs/academy/README.md) | Main entry point for the Academy. |
+| [Learning Path](docs/academy/LEARNING_PATH.md) | Recommended study sequence. |
+| [Glossary](docs/academy/GLOSSARY.md) | Business, engineering and Big Data terminology. |
+| [Academy Style Guide](docs/academy/STYLE_GUIDE.md) | Editorial and visual standards. |
+| [Academy Contributing Guide](docs/academy/CONTRIBUTING.md) | Contribution rules for Academy content. |
+
+### Languages
+
+| Language | Status | Entry point |
+|---|---|---|
+| 🇧🇷 Portuguese (PT-BR) | Available | [Mini BOP Academy PT-BR](docs/academy/pt-BR/README.md) |
+| 🇺🇸 English (EN-US) | Structure available / translation in progress | [Mini BOP Academy EN-US](docs/academy/en-US/README.md) |
+| 🇫🇷 French (FR-FR) | Structure available / translation in progress | [Mini BOP Academy FR-FR](docs/academy/fr-FR/README.md) |
+
+### PT-BR Academy Modules
+
+| Module | Topic |
+|---:|---|
+| 00 | [Welcome](docs/academy/pt-BR/academy/00_WELCOME.md) |
+| 01 | [Financial Fundamentals](docs/academy/pt-BR/academy/01_FINANCIAL_FUNDAMENTALS.md) |
+| 02 | [Financial Instruments](docs/academy/pt-BR/academy/02_FINANCIAL_INSTRUMENTS.md) |
+| 03 | [Mini BOP Architecture](docs/academy/pt-BR/academy/03_MINI_BOP_ARCHITECTURE.md) |
+| 04 | [Oracle Core](docs/academy/pt-BR/academy/04_ORACLE_CORE.md) |
+| 05 | [Batch Processing Pipeline](docs/academy/pt-BR/academy/05_BATCH_PIPELINE.md) |
+| 06 | [Performance](docs/academy/pt-BR/academy/06_PERFORMANCE.md) |
+| 07 | [Recovery](docs/academy/pt-BR/academy/07_RECOVERY.md) |
+| 08 | [Reconciliation](docs/academy/pt-BR/academy/08_RECONCILIATION.md) |
+| 09 | [Data Quality](docs/academy/pt-BR/academy/09_DATA_QUALITY.md) |
+| 10 | [Audit & Lineage](docs/academy/pt-BR/academy/10_AUDIT_LINEAGE.md) |
+| 11 | [Metadata Engine](docs/academy/pt-BR/academy/11_METADATA_ENGINE.md) |
+| 12 | [Big Data Overview](docs/academy/pt-BR/academy/12_BIG_DATA_OVERVIEW.md) |
+| 13 | [Engineering Decisions](docs/academy/pt-BR/academy/13_ENGINEERING_DECISIONS.md) |
+| 14 | [Technical Debt](docs/academy/pt-BR/academy/14_TECHNICAL_DEBT.md) |
+| 15 | [Next Steps](docs/academy/pt-BR/academy/15_NEXT_STEPS.md) |
+
+---
+
 ## Enterprise Capabilities
 
 | Capability | Description |
@@ -78,6 +159,7 @@ Mini BOP is organized as a layered data platform. Each layer has a clear respons
 | REST integration | FastAPI exposes curated datasets to consuming applications. |
 | Operational dashboard | A dashboard provides a lightweight view over platform outputs and metrics. |
 | Bootstrap automation | Scripts simplify local environment validation and startup. |
+| Onboarding documentation | The Mini BOP Academy provides structured knowledge transfer. |
 
 ---
 
@@ -107,7 +189,7 @@ mini-bop/
 ├── bootstrap/     # Local platform bootstrap scripts
 ├── config/        # Configuration files
 ├── data/          # Local export and sample data area
-├── docs/          # Technical documentation
+├── docs/          # Technical documentation, Academy and ADRs
 ├── hadoop/        # HDFS scripts and Hadoop-related assets
 ├── hive/          # Hive DDL and query layer scripts
 ├── monitoring/    # Health checks and operational reports
@@ -119,7 +201,7 @@ mini-bop/
 └── CONTRIBUTING.md
 ```
 
-More details are available in [Project Structure](docs/PROJECT_STRUCTURE.md).
+More details are available in [Project Structure](docs/reference/PROJECT_STRUCTURE.md).
 
 ---
 
@@ -163,7 +245,7 @@ Access points:
 | Hadoop NameNode UI | http://localhost:9870 |
 | YARN ResourceManager UI | http://localhost:8088 |
 
-See [Quick Start](docs/QUICK_START.md) for the complete startup procedure.
+See [Quick Start](docs/reference/QUICK_START.md) for the complete startup procedure.
 
 ---
 
@@ -189,20 +271,6 @@ Swagger documentation is available at `http://localhost:8010/docs`.
 
 ---
 
-## Documentation
-
-| Document | Description |
-|---|---|
-| [Quick Start](docs/QUICK_START.md) | Local startup and validation procedure. |
-| [Architecture](docs/ARCHITECTURE.md) | Platform architecture and layer responsibilities. |
-| [Technologies](docs/TECHNOLOGIES.md) | Technology stack and architectural roles. |
-| [Project Structure](docs/PROJECT_STRUCTURE.md) | Repository organization. |
-| [Roadmap](docs/ROADMAP.md) | Phase-by-phase evolution. |
-| [FAQ](docs/FAQ.md) | Common architectural and operational questions. |
-| [Troubleshooting](docs/TROUBLESHOOTING.md) | Known issues and recovery procedures. |
-
----
-
 ## Roadmap Summary
 
 Mini BOP was implemented incrementally across a structured roadmap, from Oracle core processing to distributed analytics and operational readiness.
@@ -221,8 +289,9 @@ Major delivery areas include:
 10. REST API and operational dashboard.
 11. Local platform packaging and bootstrap.
 12. Professional documentation and demo readiness.
+13. Academy and structured onboarding documentation.
 
-See [Roadmap](docs/ROADMAP.md) for the complete phase breakdown.
+See [Roadmap](docs/reference/ROADMAP.md) for the complete phase breakdown.
 
 ---
 
